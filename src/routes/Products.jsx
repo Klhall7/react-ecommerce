@@ -1,4 +1,4 @@
-import { useLoaderData } from "react-router-dom"
+import { useLoaderData, Link } from "react-router-dom"
 
 export const loader = async () => {
     const url = 'https://fakestoreapi.com/products';
@@ -21,18 +21,22 @@ const Products = () => {
     return (
         <>
         <div>
+            <Link id='cartIcon'to="/cart">
+                <img src="" alt='cart icon'/>
+                {/* need to save an icon and select for src */}
+            </Link>
             <ul>
-                {data.map((product, index) => (
+                {data.map(( product, index) => (
                 <li key={index}>
-                    
                     <img src={product.image} alt={product.title} />
                     <div>
-                    <h2>{product.title}</h2>
-                    {/* <p>{product.description}</p> */}
+                    <h4>{product.title}</h4>
                     <p>Price: ${product.price}</p>
-                    {/* <p>Rating: {product.rating.rate} ({product.rating.count} reviews)</p> */}
+                    <Link to={`/products/${product.id}`}> {/* Link to specific product */}
+                        <button type="button">More Details</button> {/* Button for each product */}
+                    </Link>
+
                     </div>
-                    
                 </li>
                 ))}
             </ul>

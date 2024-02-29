@@ -3,7 +3,7 @@ import StoreMenu from "./StoreMenu";
 
 const primaryNav = [
     { title: "Browse All Products", url: "/products" },
-    { title: 'Browse By Categories', url: '/categories'},
+    { title: 'Browse By Category', url: '/categories'},
 ]
 
 

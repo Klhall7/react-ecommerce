@@ -1,4 +1,4 @@
-import { useLoaderData} from "react-router-dom"
+import { useLoaderData, Link } from "react-router-dom"
 
 export async function loader ({ params }) {
     const { categoryName } = params;
@@ -14,19 +14,25 @@ const SingleCategory = () => {
     return (
         <>
         <div>
-            <ul>
+            <Link id='cartIcon'to="/cart">
+                <img src="" alt='cart icon'/>
+                {/* need to save an icon and select for src */}
+            </Link>
+
+            <ul id='card'>
+            {/* need to add styles to #card */}
                 {data.map(( catProduct, index) => (
                 <li key={index}>
-                    
                     <img src={catProduct.image} alt={catProduct.title} />
                     <div>
-                    {/* <Link to={`/products/${id}`}>{catProduct.title}</Link> */}
                     <h2>{catProduct.title}</h2>
-                    {/* <p>{catProduct.description}</p> */}
                     <p>Price: ${catProduct.price}</p>
-                    {/* <p>Rating: {catProduct.rating.rate} ({catProduct.rating.count} reviews)</p> */}
-                    </div>
+
+                    <Link to={`/products/${catProduct.id}`}> {/* Link to specific product */}
+                        <button type="button">More Details</button> {/* Button for each product */}
+                    </Link>
                     
+                    </div>
                 </li>
                 ))}
             </ul>

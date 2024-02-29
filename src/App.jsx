@@ -1,12 +1,14 @@
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 
 import ErrorPage from "./components/ErrorPage";
-import Layout from "./components/Layout";
+import Layout from "./components/Layout"; 
 import Index from "./routes/Index";
 import Products, { loader as allProductLoader } from "./routes/Products";
 import Categories, { loader as categoryLoader } from "./routes/Categories";
 import SingleCategory, { loader as productByCategoryLoader } from "./routes/SingleCategory";
-import SingleProduct, { loader as productLoader } from "./routes/SingleProduct";
+import ProductDetails, { loader as productDetailLoader } from "./routes/ProductDetails";
+import Cart from "./routes/Cart";
+
 
 
 
@@ -17,7 +19,7 @@ const router = createBrowserRouter([
     children: [
       { index: true, element: <Index /> },
       {
-        path: "/products",
+        path: "/products/",
         element: <Products />,
         loader: allProductLoader,
       },
@@ -32,10 +34,14 @@ const router = createBrowserRouter([
         loader: productByCategoryLoader,
       },
       {
-        path: 'products/:productId',
-        element: <SingleProduct />,
-        loader: productLoader,
+        path: 'products/:id',
+        element: <ProductDetails />,
+        loader: productDetailLoader,
       },
+      {
+        path: '/cart',
+        element: <Cart/>,
+      }
       
     ],
   },

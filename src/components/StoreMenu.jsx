@@ -1,15 +1,14 @@
 import PropTypes from "prop-types";
 import { Link } from "react-router-dom";
 
-{
-  /* populate store navigation(browsing) */
-}
+{/* populates store navigation(browsing) */}
 
 const StoreMenu = ({ menuItems }) => {
+
   return (
     <>
       <nav id="sidebar">
-        <h1>Store Menu</h1>
+        <Link id="homeLink" to="/"><h1>Store Menu</h1></Link>
         <ul>
           {menuItems.map((link, index) => {
             return (
